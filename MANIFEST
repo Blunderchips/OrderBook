@@ -3,6 +3,7 @@ CHANGES.txt
 LICENSE.txt
 setup.cfg
 setup.py
+bin/algosim.py
 orderbook/__init__.py
 orderbook/order.py
 orderbook/orderbook.py
