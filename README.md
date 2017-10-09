@@ -103,7 +103,7 @@ print(order_book)
 ## If a limit crosses but is only partially matched, the remaning volume will be placed in the book as an outstanding order
 ```
 big_crossing_limit_order = {
-	'type': 'limit',
+    'type': 'limit',
     'side': 'bid',
     'quantity': 50,
     'price': 102,
@@ -119,7 +119,7 @@ print(order_book)
 # Market Orders - require that a user specifies a side (bid or ask), a quantity, and their unique trade id
 ```
 market_order = {
-	'type': 'market',
+    'type': 'market',
     'side': 'ask',
     'quantity': 40,
     'trade_id': 111
@@ -159,7 +159,7 @@ Orders are sent to the order book using the process_order function. The Order is
 ```python
 # For a limit order
 quote = {
-	'type' : 'limit',
+    'type' : 'limit',
     'side' : 'bid', 
     'quantity' : 6, 
     'price' : 108.2, 
@@ -168,7 +168,7 @@ quote = {
          
 # and for a market order:
 quote = {
-	'type' : 'market',
+    'type' : 'market',
     'side' : 'ask', 
     'quantity' : 6, 
     'trade_id' : 002,
