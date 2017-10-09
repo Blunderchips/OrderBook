@@ -29,11 +29,11 @@ from orderbook import OrderBook
 ```
 from orderbook import OrderBook
 ```
-# Create an order book
+## Create an order book
 ```
 order_book = OrderBook()
 ```
-# Create some limit orders
+## Create some limit orders
 ```
 limit_orders = [{'type' : 'limit', 
                    'side' : 'ask', 
@@ -116,7 +116,7 @@ print(trades)
 print(order_book)
 
 ```
-# Market Orders - require that a user specifies a side (bid or ask), a quantity, and their unique trade id
+## Market Orders - require that a user specifies a side (bid or ask), a quantity, and their unique trade id
 ```
 market_order = {
     'type': 'market',
@@ -129,50 +129,3 @@ print("A market order takes the specified volume from the inside of the book, re
 print("A market ask for 40 results in:")
 print(order_book)
 ```
-
-Key Functions
-=============
-
-Create an Order Book:
-
-```python
-order_book = OrderBook()
-```
-
-process_order
-
-cancel_order
-
-modify_order
-
-get_volume_at_price
-
-get_best_bid
-
-get_best_ask
-
-Data Structure
-==============
-
-Orders are sent to the order book using the process_order function. The Order is created using a quote.
-
-```python
-# For a limit order
-quote = {
-    'type' : 'limit',
-    'side' : 'bid', 
-    'quantity' : 6, 
-    'price' : 108.2, 
-    'trade_id' : 001,
-}
-         
-# and for a market order:
-quote = {
-    'type' : 'market',
-    'side' : 'ask', 
-    'quantity' : 6, 
-    'trade_id' : 002,
-}
-```
-
-
