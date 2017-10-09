@@ -50,7 +50,7 @@ limit_orders = [{'type' : 'limit',
 
 # Add orders to order book
 for order in limit_orders:
-    trades, order_id = order_book.process_order(order, False, False)
+    trades, order_id = order_book.process_order(order, False)
 
 # The current book may be viewed using a print
 print(order_book)
@@ -63,7 +63,7 @@ crossing_limit_order = {'type': 'limit',
                         'trade_id': 109}
 
 print(crossing_limit_order)
-trades, order_in_book = order_book.process_order(crossing_limit_order, False, False)
+trades, order_in_book = order_book.process_order(crossing_limit_order, False)
 print("Trade occurs as incoming bid limit crosses best ask")
 print(trades)
 print(order_book)
@@ -76,7 +76,7 @@ big_crossing_limit_order = {'type': 'limit',
                             'price': 102,
                             'trade_id': 110}
 print(big_crossing_limit_order)
-trades, order_in_book = order_book.process_order(big_crossing_limit_order, False, False)
+trades, order_in_book = order_book.process_order(big_crossing_limit_order, False)
 print("Large incoming bid limit crosses best ask. Remaining volume is placed in book.")
 print(trades)
 print(order_book)
@@ -89,7 +89,7 @@ market_order = {'type': 'market',
                 'side': 'ask',
                 'quantity': 40,
                 'trade_id': 111}
-trades, order_id = order_book.process_order(market_order, False, False)
+trades, order_id = order_book.process_order(market_order, False)
 print("A market order takes the specified volume from the inside of the book, regardless of price")
 print("A market ask for 40 results in:")
 print(order_book)

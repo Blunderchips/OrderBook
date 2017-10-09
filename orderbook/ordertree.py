@@ -7,6 +7,7 @@ class OrderTree(object):
 
     The exchange will be using the OrderTree to hold bid and ask data (one OrderTree for each side).
     Keeping the information in a red black tree makes it easier/faster to detect a match.
+    https://en.wikipedia.org/wiki/Red%E2%80%93black_tree
     '''
 
     def __init__(self):
@@ -40,11 +41,14 @@ class OrderTree(object):
     def price_exists(self, price):
         return price in self.price_map
 
-    def order_exists(self, order):
+    def find_order_by_id(self, order):
         return order in self.order_map
 
+    # inserts order to price map, and order map
+    # increments volume, num_orders
     def insert_order(self, quote):
-        if self.order_exists(quote['order_id']):
+        if self.find_order_by_id(quote['order_id']):
+            # this could be dangerous
             self.remove_order_by_id(quote['order_id'])
         self.num_orders += 1
         if quote['price'] not in self.price_map:

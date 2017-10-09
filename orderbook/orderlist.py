@@ -22,7 +22,7 @@ class OrderList(object):
         self.last = self.head_order
         return self
 
-    def next(self):
+    def __next__(self):
         '''Get the next order in the list. 
         
         Set self.last as the next order. If there is no next order, stop
@@ -35,9 +35,7 @@ class OrderList(object):
             self.last = self.last.next_order
             return return_value
 
-    __next__ = next # python3
-
-    def get_head_order(self):
+    def get_first_order(self):
         return self.head_order
 
     def append_order(self, order):
@@ -92,13 +90,8 @@ class OrderList(object):
         self.tail_order = order
 
     def __str__(self):
-        from six.moves import cStringIO as StringIO
+        from io import StringIO
         temp_file = StringIO()
         for order in self:
             temp_file.write("%s\n" % str(order))
-        #temp_file.write("%s\n" % str(self.head_order))
         return temp_file.getvalue()
-            
-
-            
-
