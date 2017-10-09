@@ -78,18 +78,14 @@ limit_orders = [{'type' : 'limit',
                    ]
 
 ```
-# Add orders to order book
+## Add orders to order book
 ```
 for order in limit_orders:
     trades, order_id = order_book.process_order(order, False)
-
-```
-# The current book may be viewed using a print
-```
 print(order_book)
 
 ```
-# Submitting a limit order that crosses the opposing best price will result in a trade
+## Submitting a limit order that crosses the opposing best price will result in a trade
 ```
 crossing_limit_order = {'type': 'limit',
                         'side': 'bid',
@@ -104,8 +100,7 @@ print(trades)
 print(order_book)
 
 ```
-# If a limit crosses but is only partially matched, the remaning volume will
-# be placed in the book as an outstanding order
+## If a limit crosses but is only partially matched, the remaning volume will be placed in the book as an outstanding order
 ```
 big_crossing_limit_order = {'type': 'limit',
                             'side': 'bid',
@@ -119,9 +114,7 @@ print(trades)
 print(order_book)
 
 ```
-# Market Orders
-
-# Market orders only require that a user specifies a side (bid or ask), a quantity, and their unique trade id
+# Market Orders - require that a user specifies a side (bid or ask), a quantity, and their unique trade id
 ```
 market_order = {'type': 'market',
                 'side': 'ask',
