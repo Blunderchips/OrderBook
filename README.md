@@ -102,11 +102,13 @@ print(order_book)
 ```
 ## If a limit crosses but is only partially matched, the remaning volume will be placed in the book as an outstanding order
 ```
-big_crossing_limit_order = {'type': 'limit',
-                            'side': 'bid',
-                            'quantity': 50,
-                            'price': 102,
-                            'trade_id': 110}
+big_crossing_limit_order = {
+	'type': 'limit',
+    'side': 'bid',
+    'quantity': 50,
+    'price': 102,
+    'trade_id': 110
+}
 print(big_crossing_limit_order)
 trades, order_in_book = order_book.process_order(big_crossing_limit_order, False)
 print("Large incoming bid limit crosses best ask. Remaining volume is placed in book.")
@@ -116,10 +118,12 @@ print(order_book)
 ```
 # Market Orders - require that a user specifies a side (bid or ask), a quantity, and their unique trade id
 ```
-market_order = {'type': 'market',
-                'side': 'ask',
-                'quantity': 40,
-                'trade_id': 111}
+market_order = {
+	'type': 'market',
+    'side': 'ask',
+    'quantity': 40,
+    'trade_id': 111
+}
 trades, order_id = order_book.process_order(market_order, False)
 print("A market order takes the specified volume from the inside of the book, regardless of price")
 print("A market ask for 40 results in:")
@@ -159,7 +163,7 @@ quote = {
     'side' : 'bid', 
     'quantity' : 6, 
     'price' : 108.2, 
-    'trade_id' : 001
+    'trade_id' : 001,
 }
          
 # and for a market order:
@@ -167,7 +171,7 @@ quote = {
 	'type' : 'market',
     'side' : 'ask', 
     'quantity' : 6, 
-    'trade_id' : 002
+    'trade_id' : 002,
 }
 ```
 
